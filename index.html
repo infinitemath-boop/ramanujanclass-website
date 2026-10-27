@@ -2,357 +2,904 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ramanujan Class, Namakkal · CSIR NET, GATE, JAM, SET & TRB Mathematics</title>
-<meta name="description" content="Ramanujan Class, Namakkal: mathematics coaching for CSIR NET, GATE MA, IIT JAM, TN SET and PG TRB, with recorded classes, daily tests and weekly rank-list tests in the class app.">
-<link rel="canonical" href="https://ramanujanclass.org/">
-<meta property="og:title" content="Ramanujan Class, Namakkal">
-<meta property="og:description" content="The IITian Hub: Mastering Competitive Math. Coaching for CSIR NET, GATE, IIT JAM, TN SET and PG TRB.">
-<meta property="og:image" content="https://ramanujanclass.org/logo.png">
-<meta property="og:url" content="https://ramanujanclass.org/">
-<meta name="theme-color" content="#0d1838">
-<link rel="icon" href="icon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramanujan Class</title>
+<meta name="description" content="Ramanujan Class, Namakkal: coaching for CSIR NET, GATE, IIT JAM, TN SET, PG TRB and Olympiad maths by an IITian teacher.">
+<link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&family=Noto+Sans+Tamil:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Mukta+Malar:wght@400;500;700;800&family=Noto+Sans+Tamil:wght@500;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-:root{
-  --bg:#f4f5f9; --surface:#ffffff; --surface-2:#eceff6; --ink:#141b2d; --muted:#5b6479; --line:#dbe0ea;
-  --primary:#1b2a5c; --navy:#0d1838; --gold:#d48d06; --gold-soft:#fbefd2; --gold-ink:#7a4e00; --chalk:#f6c766;
-  --shadow:0 1px 2px rgba(20,27,45,.05),0 12px 32px rgba(20,27,45,.08);
-  --f-display:"Young Serif",Georgia,serif; --f-ui:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-chalk:"Kalam","Comic Sans MS",cursive; --f-ta:"Noto Sans Tamil","Latha",sans-serif;
-  --wrap:1120px;
+/* Layout: bright coaching-site rhythm (banner, course grid, teacher, resources, quiz, enrol) on a cool white ground; maroon ink, marigold for the one action colour. */
+:root {
+  --bg: #F6F7F9;
+  --surface: #FFFFFF;
+  --ink: #1B1E2B;
+  --muted: #5B6072;
+  --line: #E1E4EB;
+  --brand: #7A1F2B;        /* temple maroon */
+  --brand-soft: #F6E9EA;
+  --gold: #E8A317;         /* marigold */
+  --gold-ink: #3A2600;
+  --good: #1F7A4D;
+  --bad: #B3261E;
+  --hero-bg: #7A1F2B;
+  --hero-fg: #FFF6F0;
+  --f-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --f-body: "Mukta Malar", "Noto Sans Tamil", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-tamil: "Noto Sans Tamil", "Mukta Malar", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 14px;
 }
-@media (prefers-color-scheme:dark){
-  :root{ --bg:#0a0f1e; --surface:#121a2e; --surface-2:#1a2339; --ink:#e7eaf3; --muted:#9aa3b8; --line:#253049;
-    --primary:#3d5bb5; --gold:#f2b237; --gold-soft:#3a2b0e; --gold-ink:#f7cd73;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12131A; --surface: #1B1D27; --ink: #ECEDF2; --muted: #A4A8B8; --line: #2C2F3D;
+    --brand: #E07A86; --brand-soft: #2A1A1E; --gold: #F2B63A; --gold-ink: #2A1B00;
+    --good: #5BC68E; --bad: #F2847C; --hero-bg: #3B0F16; --hero-fg: #FFF1EA;
+    color-scheme: dark;
+  }
 }
-*{box-sizing:border-box; margin:0}
-html{scroll-behavior:smooth; scroll-padding-top:72px}
-body{background:var(--bg); color:var(--ink); font-family:var(--f-ui); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased}
-img{max-width:100%; display:block}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
-.wrap{max-width:var(--wrap); margin:0 auto; padding:0 20px}
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 20px; border-radius:12px; font-weight:600; font-size:15px; text-decoration:none; border:1px solid transparent; transition:transform .15s, background .15s; white-space:nowrap}
-.btn:hover{transform:translateY(-1px)}
-.btn.gold{background:var(--gold); color:#1a1200}
-.btn.light{background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.28)}
-.btn.navy{background:var(--primary); color:#fff}
-.btn.ghost{border-color:var(--line); color:var(--ink); background:var(--surface)}
-.btn svg{width:18px; height:18px}
+:root[data-theme="dark"] {
+  --bg: #12131A; --surface: #1B1D27; --ink: #ECEDF2; --muted: #A4A8B8; --line: #2C2F3D;
+  --brand: #E07A86; --brand-soft: #2A1A1E; --gold: #F2B63A; --gold-ink: #2A1B00;
+  --good: #5BC68E; --bad: #F2847C; --hero-bg: #3B0F16; --hero-fg: #FFF1EA;
+  color-scheme: dark;
+}
 
-/* header */
-header.top{position:sticky; top:0; z-index:20; background:rgba(13,24,56,.92); backdrop-filter:saturate(1.4) blur(10px); -webkit-backdrop-filter:saturate(1.4) blur(10px); color:#fff; border-bottom:1px solid rgba(255,255,255,.08)}
-.top .wrap{display:flex; align-items:center; gap:18px; height:64px}
-.brand{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto}
-.brand img{width:40px; height:40px; border-radius:50%; background:#fff}
-.brand b{font-family:var(--f-display); font-weight:400; font-size:19px; letter-spacing:.01em}
-.brand small{display:block; font-size:11px; color:#aab4d6; letter-spacing:.08em; text-transform:uppercase; line-height:1.2}
-nav.links{display:flex; gap:22px; font-size:14px; font-weight:500}
-nav.links a{text-decoration:none; color:#d9def0}
-nav.links a:hover{color:#fff}
-.top .btn{padding:9px 16px; font-size:14px}
-@media (max-width:860px){ nav.links{display:none} }
-@media (max-width:420px){ .brand small{display:none} .brand b{font-size:17px; white-space:nowrap} .top .btn{padding:8px 12px} }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: var(--brand); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
-/* hero */
-.hero{position:relative; overflow:hidden; color:#fff; background:var(--navy)}
-.hero canvas{position:absolute; inset:0; width:100%; height:100%}
-.hero .wrap{position:relative; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding-top:72px; padding-bottom:80px}
-.eyebrow{font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--chalk)}
-.hero h1{font-family:var(--f-display); font-weight:400; font-size:clamp(42px,7vw,76px); line-height:1.02; margin:12px 0 10px; letter-spacing:-.01em}
-.hero .ta{font-family:var(--f-ta); font-weight:600; color:#dfe5ff; font-size:clamp(16px,2vw,19px)}
-.motto{font-family:var(--f-chalk); font-size:clamp(21px,2.8vw,28px); color:var(--chalk); margin-top:6px}
-.hero p.lead{color:#cfd6ef; max-width:56ch; margin-top:16px; font-size:17px}
-.chips{display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin-top:22px}
-.chips li{padding:6px 12px; border-radius:999px; border:1px solid rgba(246,199,102,.45); color:#fbe6b5; font-size:13px; font-weight:600; background:rgba(0,0,0,.18)}
-.cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
-.hero-card{background:rgba(9,16,40,.55); border:1px solid rgba(255,255,255,.14); border-radius:20px; padding:26px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
-.hero-card img.logo{width:96px; height:96px; border-radius:50%; background:#fff; margin-bottom:16px}
-.hero-card h2{font-family:var(--f-display); font-weight:400; font-size:24px; margin-bottom:6px}
-.hero-card p{color:#cfd6ef; font-size:15px}
-.hero-card .quote{font-family:var(--f-chalk); font-size:18px; color:#f3dca6; line-height:1.45; margin-top:14px}
-@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr; padding-top:48px; padding-bottom:56px} }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(48px, 7vw, 88px); }
+.band.alt { background: var(--surface); border-block: 1px solid var(--line); }
+.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.section-head { display: grid; gap: 10px; margin-bottom: 32px; max-width: 62ch; }
+.section-head p { color: var(--muted); }
 
-/* sections */
-section.block{padding:72px 0}
-section.block.alt{background:var(--surface)}
-.head{max-width:680px; margin-bottom:34px}
-.head h2{font-family:var(--f-display); font-weight:400; font-size:clamp(28px,4vw,40px); line-height:1.15; margin-top:8px}
-.head p{color:var(--muted); margin-top:10px; font-size:17px}
-.head .eyebrow{color:var(--gold-ink)}
-.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-.grid2{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center}
-@media (max-width:900px){ .grid3{grid-template-columns:1fr 1fr} .grid2{grid-template-columns:1fr} }
-@media (max-width:600px){ .grid3{grid-template-columns:1fr} section.block{padding:52px 0} }
-.card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
-.alt .card{background:var(--bg)}
-.card h3{font-size:18px; font-weight:700; margin-bottom:6px}
-.card p{color:var(--muted); font-size:15px}
-.card .tag{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-ink); background:var(--gold-soft); padding:3px 9px; border-radius:6px; margin-bottom:12px}
-.ic{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:var(--primary); color:#fff; margin-bottom:14px}
-.ic svg{width:22px; height:22px}
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 700 .98rem/1 var(--f-body); padding: 13px 20px; border-radius: 999px; border: 2px solid transparent; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn-gold { background: var(--gold); color: var(--gold-ink); }
+.btn-gold:hover { filter: brightness(1.06); }
+.btn-ghost { border-color: currentColor; color: inherit; background: transparent; }
+.btn-ghost:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
 
-/* subjects */
-.subjects{display:flex; flex-wrap:wrap; gap:10px}
-.subj{display:flex; align-items:center; gap:12px; padding:12px 16px 12px 12px; border-radius:14px; background:var(--surface); border:1px solid var(--line)}
-.subj span{font-family:var(--f-chalk); font-weight:700; font-size:16px; color:#fff; min-width:58px; height:40px; padding:0 8px; border-radius:10px; display:grid; place-items:center}
-.subj b{font-weight:600; font-size:15px}
+/* Header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--surface); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 20px; min-height: 68px; flex-wrap: wrap; padding-block: 8px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.logo-mark { width: 40px; height: 40px; border-radius: 10px; background: var(--brand); color: #fff; display: grid; place-items: center; font: 500 .74rem/1 var(--f-mono); letter-spacing: -.02em; }
+.logo-text { display: grid; line-height: 1.1; }
+.logo-text b { font-family: var(--f-display); font-weight: 400; font-size: 1.2rem; }
+.logo-text span { font-family: var(--f-tamil); font-size: .72rem; color: var(--muted); }
+nav.main { display: flex; gap: 4px 18px; flex-wrap: wrap; margin-left: auto; font-weight: 500; font-size: .96rem; }
+nav.main a { color: var(--ink); text-decoration: none; padding: 6px 0; }
+nav.main a:hover { color: var(--brand); }
+.top-actions { display: flex; gap: 10px; }
+.top-actions .btn { padding: 10px 16px; font-size: .9rem; }
+.top-actions .btn-ghost { color: var(--brand); }
+@media (max-width: 900px) { nav.main { order: 3; width: 100%; margin-left: 0; overflow-x: auto; flex-wrap: nowrap; } .top-actions { margin-left: auto; } }
 
-/* how it works */
-.steps{counter-reset:s; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
-.steps li{list-style:none; position:relative; padding-top:46px}
-.steps li::before{counter-increment:s; content:counter(s); position:absolute; top:0; left:0; width:34px; height:34px; border-radius:50%; background:var(--gold); color:#1a1200; font-weight:700; display:grid; place-items:center}
-.steps h3{font-size:17px; margin-bottom:4px}
-.steps p{color:var(--muted); font-size:15px}
-@media (max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
-@media (max-width:520px){ .steps{grid-template-columns:1fr} }
+/* Hero */
+.hero { background: var(--hero-bg); color: var(--hero-fg); }
+.hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; padding-block: clamp(44px, 7vw, 84px); }
+.hero-copy { display: grid; gap: 20px; min-width: 0; }
+.hero .tamil { font-family: var(--f-tamil); font-weight: 700; font-size: 1rem; color: var(--gold); }
+.hero h1 { font-size: clamp(2.2rem, 5.2vw, 3.8rem); }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-lead { font-size: 1.15rem; max-width: 52ch; opacity: .92; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.exam-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.exam-chips li { font-size: .82rem; font-weight: 700; letter-spacing: .04em; padding: 5px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--hero-fg) 35%, transparent); }
 
-/* app */
-.shots{display:flex; gap:18px; justify-content:center; align-items:flex-end}
-.phone{width:min(46%,250px); border-radius:28px; padding:8px; background:#0b1230; box-shadow:0 24px 60px rgba(13,24,56,.35)}
-.phone img{border-radius:21px}
-.wide{border-radius:16px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line); margin-top:18px}
-ul.ticks{list-style:none; padding:0; display:grid; gap:12px; margin:20px 0 26px}
-ul.ticks li{display:flex; gap:12px; align-items:flex-start}
-ul.ticks svg{flex:none; width:22px; height:22px; color:var(--gold); margin-top:2px}
-ul.ticks b{font-weight:600}
-.note{color:var(--muted); font-size:14px; margin-top:12px}
+.taxicab { background: color-mix(in srgb, var(--hero-fg) 7%, transparent); border: 1px solid color-mix(in srgb, var(--hero-fg) 22%, transparent); border-radius: 20px; padding: 28px; display: grid; gap: 14px; min-width: 0; }
+.taxicab .num { font-family: var(--f-display); font-size: clamp(4rem, 9vw, 6.4rem); line-height: 1; color: var(--gold); }
+.taxicab .eq { font-family: var(--f-mono); font-size: clamp(1rem, 2vw, 1.25rem); overflow-wrap: anywhere; }
+.taxicab p { font-size: .95rem; opacity: .85; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
 
-/* timeline */
-.timeline{list-style:none; padding:0; border-left:2px solid var(--line); margin-left:8px}
-.timeline li{position:relative; padding:0 0 18px 24px}
-.timeline li::before{content:""; position:absolute; left:-7px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--gold)}
-.timeline .yr{font-family:var(--f-display); font-size:18px; color:var(--gold-ink)}
-.timeline p{color:var(--muted); font-size:15px}
-.story p+p{margin-top:12px}
-.story p{color:var(--muted); font-size:16px}
-.story b{color:var(--ink)}
+/* Facts strip */
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: -36px; position: relative; }
+.facts div { background: var(--surface); padding: 20px 22px; display: grid; gap: 2px; }
+.facts b { font-family: var(--f-display); font-weight: 400; font-size: 1.35rem; color: var(--brand); }
+.facts span { color: var(--muted); font-size: .92rem; }
+@media (max-width: 760px) { .facts { grid-template-columns: repeat(2, 1fr); } }
 
-/* contact */
-.contact{display:grid; grid-template-columns:1.1fr .9fr; gap:22px}
-@media (max-width:820px){ .contact{grid-template-columns:1fr} }
-.contact dl{display:grid; gap:16px}
-.contact dt{font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
-.contact dd{font-size:17px; font-weight:600}
-.contact dd a{color:var(--ink)}
-.join{align-self:start; background:var(--navy); color:#fff; border-radius:20px; padding:28px; position:relative; overflow:hidden}
-.join h3{font-family:var(--f-display); font-weight:400; font-size:26px; margin-bottom:8px}
-.join p{color:#cfd6ef}
-.join .cta{margin-top:20px}
+/* Courses */
+.courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.course { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: grid; gap: 10px; grid-template-rows: auto auto 1fr auto; }
+.course .tag { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.course p { color: var(--muted); font-size: .95rem; }
+.course .links { display: flex; gap: 14px; flex-wrap: wrap; font-weight: 700; font-size: .92rem; }
+.course .links a { text-decoration: none; }
+.course .links a:hover { text-decoration: underline; }
+.course.feature { background: var(--brand-soft); border-color: transparent; }
 
-footer{background:#0a1230; color:#aab4d6; padding:30px 0; font-size:14px}
-footer .wrap{display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; justify-content:space-between}
-footer a{color:#d9def0}
-footer nav{display:flex; gap:18px; flex-wrap:wrap}
+/* Teacher */
+.teacher { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+.portrait { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 20px; background: var(--brand); color: var(--hero-fg); display: grid; place-items: center; text-align: center; padding: 24px; }
+.portrait .initials { font-family: var(--f-display); font-size: 5rem; line-height: 1; }
+.portrait small { display: block; margin-top: 10px; font-size: .82rem; opacity: .8; }
+.teacher-copy { display: grid; gap: 18px; min-width: 0; }
+.teacher-copy blockquote { margin: 0; font-family: var(--f-display); font-size: 1.35rem; color: var(--brand); border-left: 3px solid var(--gold); padding-left: 16px; }
+.cv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; list-style: none; padding: 0; margin: 0; }
+.cv li { display: grid; gap: 0; padding-top: 10px; border-top: 1px solid var(--line); }
+.cv b { font-weight: 700; }
+.cv span { color: var(--muted); font-size: .93rem; }
+.story { color: var(--muted); max-width: 64ch; }
+@media (max-width: 820px) { .teacher { grid-template-columns: 1fr; } .portrait { max-width: 260px; } .cv { grid-template-columns: 1fr; } }
+
+/* Videos */
+.videos { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
+.video { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; text-decoration: none; color: var(--ink); }
+.video .thumb { aspect-ratio: 16 / 9; max-width: 100%; background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 55%, var(--gold))); display: grid; place-items: center; position: relative; }
+.video .thumb .spiral { font-family: var(--f-mono); color: #fff; font-size: clamp(.8rem, 1.6vw, 1rem); opacity: .85; text-align: center; padding: 0 16px; }
+.video .play { position: absolute; width: 62px; height: 62px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; }
+.video .play::after { content: ""; border-left: 18px solid var(--gold-ink); border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 5px; }
+.video .meta { padding: 18px 20px; display: grid; gap: 4px; }
+.video .meta span { color: var(--muted); font-size: .92rem; }
+.app-videos { background: var(--brand-soft); border-radius: var(--radius); padding: 26px; display: grid; gap: 14px; align-content: start; }
+.app-videos ul { margin: 0; padding-left: 20px; color: var(--muted); }
+.app-videos .btn { justify-self: start; background: var(--brand); color: #fff; }
+@media (max-width: 820px) { .videos { grid-template-columns: 1fr; } }
+
+/* Materials */
+.materials { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; }
+.list li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.list li > div { min-width: 0; display: grid; }
+.list li span { color: var(--muted); font-size: .9rem; }
+.list a.dl { font-weight: 700; font-size: .9rem; white-space: nowrap; text-decoration: none; }
+.pill { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); white-space: nowrap; }
+.materials h3 { margin-bottom: 6px; }
+@media (max-width: 860px) { .materials { grid-template-columns: 1fr; } }
+
+/* Quiz */
+.quiz { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(20px, 4vw, 36px); display: grid; gap: 22px; max-width: 820px; }
+.quiz-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.quiz-top .count { font-family: var(--f-mono); font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.progress { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.progress i { display: block; height: 100%; width: 0; background: var(--gold); transition: width .3s ease; }
+.q-text { font-size: 1.2rem; font-weight: 500; }
+.q-text code { font-family: var(--f-mono); font-size: .95em; }
+.options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.opt { text-align: left; font: 500 1rem/1.4 var(--f-body); color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: 12px; padding: 14px 16px; cursor: pointer; }
+.opt:hover:not(:disabled) { border-color: var(--brand); }
+.opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.opt:disabled { cursor: default; }
+.explain { color: var(--muted); border-left: 3px solid var(--gold); padding-left: 14px; }
+.quiz-nav { display: flex; gap: 12px; justify-content: flex-end; }
+.quiz-nav .btn-ghost { color: var(--brand); }
+.score { font-family: var(--f-display); font-size: 2.6rem; color: var(--brand); }
+@media (max-width: 560px) { .options { grid-template-columns: 1fr; } }
+
+/* Enrol */
+.enrol { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.enrol-copy { display: grid; gap: 18px; }
+.contact-card { background: var(--brand-soft); border-radius: var(--radius); padding: 20px 22px; display: grid; gap: 4px; }
+.contact-card .phone { font-family: var(--f-mono); font-size: 1.3rem; color: var(--brand); user-select: all; }
+form.join { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; display: grid; gap: 14px; }
+form.join label { display: grid; gap: 6px; font-weight: 500; font-size: .95rem; }
+form.join input, form.join select { font: 400 1rem var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; width: 100%; }
+.form-note { font-size: .9rem; color: var(--good); }
+@media (max-width: 820px) { .enrol { grid-template-columns: 1fr; } }
+
+
+/* Video grid (teacher-added) */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-bottom: 18px; }
+.video video { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; display: block; }
+.course-tag { font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+.portrait.has-photo { padding: 0; overflow: hidden; }
+.quiz-pick { display: flex; gap: 8px; flex-wrap: wrap; }
+.quiz-pick button { font: 700 .85rem/1 var(--f-body); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.quiz-pick button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* Teacher corner */
+.teacher-corner { background: var(--brand-soft); }
+.tc-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.tc-tabs button { font: 700 .95rem/1 var(--f-body); padding: 11px 18px; border-radius: 999px; border: 2px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; }
+.tc-tabs button[aria-selected="true"] { background: var(--brand); color: #fff; }
+.tc-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.tc-panel form { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 12px; }
+.tc-panel label { display: grid; gap: 6px; font-weight: 500; font-size: .93rem; }
+.tc-panel input, .tc-panel select, .tc-panel textarea { font: 400 1rem var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.tc-panel textarea { min-height: 80px; resize: vertical; }
+.tc-panel .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tc-panel .hint { font-size: .85rem; color: var(--muted); }
+.tc-status { font-size: .9rem; min-height: 1.2em; }
+.tc-status.ok { color: var(--good); }
+.tc-status.err { color: var(--bad); }
+.tc-list { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 8px 20px; min-width: 0; }
+.tc-list h3 { padding-top: 12px; }
+.tc-list .empty { color: var(--muted); padding: 14px 0; }
+.tc-list li .del { font: 700 .82rem/1 var(--f-body); color: var(--bad); background: none; border: 1px solid currentColor; border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+.signin-bar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:20px; }
+.signin-bar .who { color: var(--muted); font-size:.93rem; }
+footer button.linkish { background:none; border:0; padding:0; font:inherit; color:inherit; opacity:.85; text-decoration:underline; cursor:pointer; }
+.tc-list li .del.confirm { background: var(--bad); color: #fff; border-color: var(--bad); }
+@media (max-width: 820px) { .tc-panel { grid-template-columns: 1fr; } }
+
+footer { background: var(--ink); color: var(--bg); }
+footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; font-size: .92rem; }
+footer a { color: inherit; opacity: .85; }
+footer .tamil { font-family: var(--f-tamil); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
 
+
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Ramanujan Class home">
-      <img src="logo.png" alt="" width="40" height="40">
-      <span><b>Ramanujan Class</b><small>Namakkal · Tamil Nadu</small></span>
+    <a class="logo" href="#top" aria-label="Ramanujan Class home">
+      <span class="logo-mark">1729</span>
+      <span class="logo-text"><b>Ramanujan Class</b><span>இராமானுஜன் கணித வகுப்பு · நாமக்கல்</span></span>
     </a>
-    <nav class="links" aria-label="Sections">
-      <a href="#exams">Exams</a><a href="#teaching">How we teach</a><a href="#app">Class app</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <nav class="main" aria-label="Main">
+      <a href="#courses">Courses</a>
+      <a href="#videos">Videos</a>
+      <a href="#materials">Study materials</a>
+      <a href="#quiz">Quizzes</a>
+      <a href="#about">About</a>
+      <a href="#teacher-corner" id="navTeacher" hidden>Teacher corner</a>
     </nav>
-    <a class="btn gold" href="https://app.ramanujanclass.org/">Student login</a>
+    <div class="top-actions">
+      <a class="btn btn-ghost" href="https://app.ramanujanclass.org/" target="_blank" rel="noopener">Log in</a>
+      <a class="btn btn-gold" href="#join">Join a class</a>
+    </div>
   </div>
 </header>
 
 <main id="top">
-<section class="hero">
-  <canvas id="board" aria-hidden="true"></canvas>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="tamil">இராமானுஜன் கணித வகுப்பு · நாமக்கல்</span>
+        <h1>Master competitive maths with an <em>IITian</em> teacher</h1>
+        <p class="hero-lead">Live classes, recorded lectures, study materials and practice quizzes for postgraduate entrance and eligibility exams, taught from Namakkal for students everywhere.</p>
+        <ul class="exam-chips" aria-label="Exams covered">
+          <li>CSIR NET</li><li>GATE MA</li><li>IIT JAM</li><li>TN SET</li><li>PG TRB</li><li>Olympiad</li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#join">Book a free demo class</a>
+          <a class="btn btn-ghost" href="#quiz">Try a quiz</a>
+        </div>
+      </div>
+      <aside class="taxicab" aria-label="Ramanujan's number">
+        <div class="num">1729</div>
+        <div class="eq">1³ + 12³ = 9³ + 10³</div>
+        <p>The smallest number that is a sum of two cubes in two different ways. Ramanujan credited Namagiri Thayar of Namakkal for his formulas; our class carries his name in her town.</p>
+      </aside>
+    </div>
+  </section>
+
   <div class="wrap">
-    <div>
-      <p class="eyebrow">Mathematics coaching · Namakkal</p>
-      <h1>Ramanujan Class</h1>
-      <p class="ta">இராமானுஜன் கணித வகுப்பு · நாமக்கல்</p>
-      <p class="motto">The IITian Hub: Mastering Competitive Math</p>
-      <p class="lead">Taught by an IIT Madras alumnus who has cleared CSIR NET, GATE, IIT JAM and TN SET. Coaching for postgraduate entrance and eligibility exams in mathematics. Every subject runs from first principles up to the level of the actual papers, with recorded classes, daily tests and weekly rank-list tests.</p>
-      <ul class="chips"><li>CSIR NET</li><li>GATE MA</li><li>IIT JAM</li><li>TN SET</li><li>PG TRB</li><li>IIT Foundation &amp; Olympiad</li></ul>
-      <div class="cta">
-        <a class="btn gold" href="#contact">Join the next batch</a>
-        <a class="btn light" href="https://app.ramanujanclass.org/">Open the class app</a>
-      </div>
+    <div class="facts">
+      <div><b>IIT Madras</b><span>Postgraduate alumnus</span></div>
+      <div><b>NET · GATE · SET</b><span>All three cleared</span></div>
+      <div><b>Since 2011</b><span>Teaching college maths</span></div>
+      <div><b>6 courses</b><span>From Olympiad to CSIR NET</span></div>
     </div>
-    <aside class="hero-card">
-      <img class="logo" src="logo.png" alt="Ramanujan Class logo" width="96" height="96">
-      <h2>Learn where Ramanujan's goddess lives</h2>
-      <p>Srinivasa Ramanujan credited Namagiri Thayar of Namakkal with the formulas that came to him. Our class carries his name in his goddess's town.</p>
-      <p class="quote">"An equation for me has no meaning unless it expresses a thought of God."</p>
-    </aside>
   </div>
-</section>
 
-<section class="block" id="exams">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Exams we prepare you for</p>
-      <h2>One class, every major mathematics exam</h2>
-      <p>The syllabus is taught subject by subject, so a single course prepares you for several papers at once.</p>
+  <section class="band" id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Courses</span>
+        <h2>Pick your exam</h2>
+        <p>Each course follows the official syllabus, with weekly tests and solved past papers.</p>
+      </div>
+      <div class="courses">
+        <article class="course feature">
+          <span class="tag">Research &amp; lectureship</span>
+          <h3>CSIR NET</h3>
+          <p>Linear algebra, real and complex analysis, algebra, ODE and PDE, with Part A aptitude practice.</p>
+          <div class="links"><a href="https://sowndarmath.wordpress.com/csir-net/" target="_blank" rel="noopener">Syllabus</a><a href="https://sowndarmath.wordpress.com/old-question-papers-2/" target="_blank" rel="noopener">Past papers</a></div>
+        </article>
+        <article class="course">
+          <span class="tag">PG admission &amp; PSU</span>
+          <h3>GATE MA</h3>
+          <p>Calculus to functional analysis, timed mock tests in the GATE pattern.</p>
+          <div class="links"><a href="https://sowndarmath.wordpress.com/gate/" target="_blank" rel="noopener">Syllabus</a><a href="https://sowndarmath.wordpress.com/old-question-papers-3/" target="_blank" rel="noopener">Past papers</a></div>
+        </article>
+        <article class="course">
+          <span class="tag">M.Sc. at IITs</span>
+          <h3>IIT JAM</h3>
+          <p>Sequences and series, real analysis, groups and linear algebra for undergraduates.</p>
+          <div class="links"><a href="https://sowndarmath.wordpress.com/jam/" target="_blank" rel="noopener">Syllabus</a><a href="https://sowndarmath.wordpress.com/old-question-papers-4/" target="_blank" rel="noopener">Past papers</a></div>
+        </article>
+        <article class="course">
+          <span class="tag">Assistant professor</span>
+          <h3>TN SET</h3>
+          <p>Paper I teaching aptitude and the full mathematics Paper II.</p>
+          <div class="links"><a href="https://sowndarmath.wordpress.com/tn-set/" target="_blank" rel="noopener">Syllabus</a><a href="https://sowndarmath.wordpress.com/old-question-papers/" target="_blank" rel="noopener">Past papers</a></div>
+        </article>
+        <article class="course">
+          <span class="tag">PG teacher</span>
+          <h3>PG TRB</h3>
+          <p>Unit-wise coaching for the Tamil Nadu PG Assistant recruitment exam.</p>
+          <div class="links"><a href="https://sowndarmath.wordpress.com/students/" target="_blank" rel="noopener">Details</a></div>
+        </article>
+        <article class="course">
+          <span class="tag">School students</span>
+          <h3>IIT Foundation &amp; Olympiad</h3>
+          <p>Number theory, combinatorics and problem solving for curious young minds.</p>
+          <div class="links"><a href="#join">Ask about batches</a></div>
+        </article>
+      </div>
     </div>
-    <div class="grid3">
-      <div class="card"><span class="tag">JRF · Assistant Professor</span><h3>CSIR NET</h3><p>Mathematical Sciences. The national test for Junior Research Fellowship and Assistant Professor eligibility.</p></div>
-      <div class="card"><span class="tag">M.Tech · PhD · PSU</span><h3>GATE MA</h3><p>The GATE Mathematics paper, for postgraduate and PhD admissions and PSU recruitment.</p></div>
-      <div class="card"><span class="tag">M.Sc. at IITs &amp; IISc</span><h3>IIT JAM</h3><p>Mathematics. The entrance exam for M.Sc. programmes at the IITs and IISc.</p></div>
-      <div class="card"><span class="tag">Assistant Professor</span><h3>TN SET</h3><p>The Tamil Nadu State Eligibility Test for Assistant Professor posts in colleges.</p></div>
-      <div class="card"><span class="tag">PG Assistant</span><h3>PG TRB</h3><p>The Teachers Recruitment Board exam for Post Graduate Assistant (Mathematics) posts.</p></div>
-      <div class="card"><span class="tag">School students</span><h3>IIT Foundation &amp; Olympiad</h3><p>Strong school mathematics foundations for JEE, and preparation for the Mathematics Olympiads.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="block alt" id="teaching">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">How we teach</p>
-      <h2>Concepts first, then exam-level problems, then a test</h2>
-      <p>Each class builds a topic from its definitions, works through problems at CSIR NET and GATE level, and is followed by a test the same night.</p>
+  <section class="band alt" id="about">
+    <div class="wrap teacher">
+      <div class="portrait" id="portrait" role="img" aria-label="Photo of Sowndrarajan S.">
+        <div><div class="initials">SS</div><small>Photo coming soon</small></div>
+      </div>
+      <div class="teacher-copy">
+        <span class="eyebrow">Your teacher</span>
+        <h2>Sowndrarajan S.</h2>
+        <blockquote>A spark has the power to lighten the darkness.</blockquote>
+        <p class="story">Born in Namakkal, trained at IIT Madras, and now teaching mathematics at R.D. Government Arts College, Sivaganga. Ramanujan Class brings the same rigour to every student who wants to learn, from rural and urban schools and colleges alike.</p>
+        <ul class="cv">
+          <li><b>M.Sc. Mathematics</b><span>IIT Madras, 2011</span></li>
+          <li><b>B.Sc. Mathematics</b><span>P.G.P College, Namakkal, 2008</span></li>
+          <li><b>CSIR NET · GATE</b><span>Both cleared in 2011</span></li>
+          <li><b>TN SET</b><span>Cleared in 2012</span></li>
+          <li><b>Government College of Technology</b><span>Coimbatore, 2013 to 2016</span></li>
+          <li><b>R.D. Government Arts College</b><span>Sivaganga, current</span></li>
+        </ul>
+      </div>
     </div>
-    <ol class="steps">
-      <li><h3>Live concept class</h3><p>Topics are built up from first principles on the board, with the reasoning written out in full.</p></li>
-      <li><h3>Recorded for revision</h3><p>Every class is recorded and appears in the app within the day, cropped to the board so the writing is easy to read.</p></li>
-      <li><h3>Daily test</h3><p>A 40-minute test after each class: MCQs with negative marking and CSIR NET style MSQs, all with worked solutions.</p></li>
-      <li><h3>Weekly test &amp; rank list</h3><p>A timed weekly paper across the week's classes, with a batch rank list by marks and time.</p></li>
-    </ol>
-    <div class="head" style="margin-top:56px;margin-bottom:22px">
-      <h2 style="font-size:clamp(24px,3vw,30px)">Subjects</h2>
-    </div>
-    <div class="subjects">
-      <div class="subj"><span style="background:#1d3a8f">G/H</span><b>Abstract Algebra</b></div>
-      <div class="subj"><span style="background:#0f6b62">ε–δ</span><b>Real Analysis</b></div>
-      <div class="subj"><span style="background:#5b2d8e">Ax=λx</span><b>Linear Algebra</b></div>
-      <div class="subj"><span style="background:#8a2c4a">∮ f dz</span><b>Complex Analysis</b></div>
-      <div class="subj"><span style="background:#7a4e00">dy/dx</span><b>Differential Equations</b></div>
-      <div class="subj"><span style="background:#2b5d8a">E[X]</span><b>Probability &amp; Statistics</b></div>
-      <div class="subj"><span style="background:#3d4a1e">φ(n)</span><b>Number Theory</b></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="block" id="app">
-  <div class="wrap grid2">
-    <div>
-      <div class="head" style="margin-bottom:0">
-        <p class="eyebrow">The class app</p>
-        <h2>Your classes, tests and books in one place</h2>
-        <p>Students sign in at app.ramanujanclass.org with the email ID they registered with. It works in any phone or computer browser and can be added to the home screen like an app.</p>
+  <section class="band" id="videos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Videos</span>
+        <h2>Watch and learn</h2>
+        <p>Start with a free lecture. Students get the full course recordings inside the class app.</p>
       </div>
-      <ul class="ticks">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Recorded lectures</b>, day by day, with a board view that fills the screen with the writing.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Daily and weekly tests</b> in the real exam pattern, shuffled on every attempt, with full solutions.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Batch rank list</b> for every weekly test.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>My progress</b> shows your weak areas, and <b>Revise now</b> brings back the questions you got wrong until you master them.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Notes, practice questions and a book library</b> with soft copies of the standard texts.</span></li>
-      </ul>
-      <a class="btn navy" href="https://app.ramanujanclass.org/">Open the class app</a>
-      <p class="note">New students get their sign-in from the class office after admission.</p>
-    </div>
-    <div>
-      <div class="shots">
-        <div class="phone"><img src="img/app-weekly-test.jpg" alt="A weekly test question in the class app, with the timer and options" width="390" height="844" loading="lazy"></div>
+      <div class="video-grid" id="videoList"></div>
+      <div class="app-videos">
+          <span class="eyebrow">For enrolled students</span>
+          <h3>Full course lectures in the class app</h3>
+          <ul>
+            <li>Topic-wise recordings for every course</li>
+            <li>Announcements and new uploads from your teacher</li>
+            <li>Sign in with your email and phone number</li>
+          </ul>
+          <a class="btn" href="https://app.ramanujanclass.org/" target="_blank" rel="noopener">Open the class app</a>
       </div>
-      <div class="wide"><img src="img/board-view.jpg" alt="A recorded lecture in board view, with the handwritten notes filling the screen" width="844" height="390" loading="lazy"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="block alt" id="about">
-  <div class="wrap grid2" style="align-items:start">
-    <div class="story">
-      <div class="head" style="margin-bottom:18px">
-        <p class="eyebrow">About us</p>
-        <h2>A mathematics class in Namakkal</h2>
+  <section class="band alt" id="materials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Study materials</span>
+        <h2>Free notes and a reading list</h2>
       </div>
-      <p>Ramanujan Class is run by an <b>IITian</b> who holds an <b>M.Sc. from IIT Madras</b> and has qualified <b>CSIR NET, GATE, IIT JAM and TN SET</b>, the same exams the class prepares you for. Course mentor: <b>Karthika Jothimani</b>.</p>
-      <p>The class prepares students for CSIR NET, GATE Mathematics, IIT JAM, TN SET and PG TRB, and runs IIT Foundation and Olympiad coaching for school students.</p>
-      <p>Classes follow each exam's syllabus subject by subject, and every topic ends with a timed test in the exam's own pattern.</p>
+      <div class="materials">
+        <div>
+          <h3>Free downloads</h3>
+          <ul class="list" id="materialList">
+            <li><div><b>A Short Survey on the History of Mathematics</b><span>Class notes</span></div><a class="dl" href="https://sowndarmath.wordpress.com/wp-content/uploads/2017/10/history-of-mathematics.pdf" target="_blank" rel="noopener">Open PDF</a></li>
+            <li><div><b>Ramanujan's Notebooks, Part I</b><span>Ramanujan's own work</span></div><a class="dl" href="https://sowndarmath.wordpress.com/wp-content/uploads/2017/10/ramanujan-notebooks-i.pdf" target="_blank" rel="noopener">Open PDF</a></li>
+            <li><div><b>Ramanujan's Notebooks, Part II</b><span>Ramanujan's own work</span></div><a class="dl" href="https://sowndarmath.wordpress.com/wp-content/uploads/2017/10/ramanujan-notebooks-ii.pdf" target="_blank" rel="noopener">Open PDF</a></li>
+            <li><div><b>CSIR NET, GATE, JAM, NBHM and SET past papers</b><span>Year-wise question papers</span></div><a class="dl" href="#courses">By course</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Recommended textbooks</h3>
+          <ul class="list">
+            <li><div><b>Real and Complex Analysis</b><span>W. Rudin</span></div><span class="pill">Analysis</span></li>
+            <li><div><b>Introduction to Real Analysis</b><span>R. G. Bartle</span></div><span class="pill">Analysis</span></li>
+            <li><div><b>Complex Analysis</b><span>L. V. Ahlfors</span></div><span class="pill">Complex</span></li>
+            <li><div><b>Linear Algebra</b><span>K. Hoffman and R. Kunze</span></div><span class="pill">Algebra</span></li>
+            <li><div><b>Linear Algebra and Its Applications</b><span>G. Strang</span></div><span class="pill">Algebra</span></li>
+            <li><div><b>Topology</b><span>J. R. Munkres</span></div><span class="pill">Topology</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3 style="font-family:var(--f-display);font-weight:400;font-size:22px;margin-bottom:16px">The name behind the class</h3>
-      <ol class="timeline">
-        <li><span class="yr">1887</span><p>Srinivasa Ramanujan is born in Erode on 22 December. His family deity is Namagiri Thayar of Namakkal.</p></li>
-        <li><span class="yr">1913</span><p>He writes to G. H. Hardy at Cambridge, enclosing pages of original theorems.</p></li>
-        <li><span class="yr">1918</span><p>He is elected Fellow of the Royal Society, one of the youngest in its history.</p></li>
-        <li><span class="yr">1920</span><p>He dies at 32 in Kumbakonam, leaving notebooks still studied today.</p></li>
-        <li style="padding-bottom:0"><span class="yr">22 December</span><p>India celebrates his birthday as National Mathematics Day.</p></li>
-      </ol>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="block" id="contact">
-  <div class="wrap contact">
-    <div class="card">
-      <div class="head" style="margin-bottom:22px">
-        <p class="eyebrow">Contact</p>
-        <h2>Visit or call the class</h2>
+  <section class="band" id="quiz">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Quizzes</span>
+        <h2>Practice quizzes</h2>
+        <p>Exam-level questions. Pick an answer to see the reasoning straight away.</p>
       </div>
-      <dl>
-        <div><dt>Address</dt><dd>Ramanujan Class, Teachers Colony,<br>Mohanur Main Road, Namakkal, Tamil Nadu</dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+919789686706">+91 97896 86706</a></dd></div>
-        <div><dt>Course mentor</dt><dd>Karthika Jothimani</dd></div>
-      </dl>
-      <div class="cta" style="margin-top:22px">
-        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Teachers+Colony+Mohanur+Main+Road+Namakkal" target="_blank" rel="noopener">Open in Google Maps</a>
+      <div class="quiz-pick" id="quizPick" role="group" aria-label="Choose a quiz" style="margin-bottom:18px"></div>
+      <div class="quiz" id="quizBox" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="band alt" id="join">
+    <div class="wrap enrol">
+      <div class="enrol-copy">
+        <span class="eyebrow">Join a class</span>
+        <h2>Book a free demo class</h2>
+        <p class="story">Tell us your exam and we will call you with batch timings. Already enrolled? Your teacher activates your app account, and you sign in with your email and phone number.</p>
+        <div class="contact-card">
+          <span>Course mentor: Karthika Jothimani</span>
+          <span class="phone">97896 86706</span>
+        </div>
+      </div>
+      <form class="join" id="joinForm" novalidate>
+        <label for="jName">Your name<input id="jName" name="name" autocomplete="name" required></label>
+        <label for="jPhone">Phone number<input id="jPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label for="jExam">Exam
+          <select id="jExam" name="exam">
+            <option>CSIR NET</option><option>GATE MA</option><option>IIT JAM</option><option>TN SET</option><option>PG TRB</option><option>IIT Foundation &amp; Olympiad</option><option>College maths (UG / PG)</option>
+          </select>
+        </label>
+        <button class="btn btn-gold" type="submit">Request a call back</button>
+        <p class="form-note" id="formNote" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band teacher-corner" id="teacher-corner" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Signed in as teacher</span>
+        <h2>Teacher corner</h2>
+        <p>Add videos, study materials, quiz questions and your photo. Everything you add appears on the site straight away.</p>
+      </div>
+      <div class="signin-bar"><span class="who" id="tcWho"></span><button class="btn btn-ghost" type="button" id="tcSignOut" style="color:var(--brand)">Sign out</button></div>
+      <div class="tc-tabs" role="tablist">
+        <button type="button" role="tab" data-tab="video" aria-selected="true">Videos</button>
+        <button type="button" role="tab" data-tab="material" aria-selected="false">Study materials</button>
+        <button type="button" role="tab" data-tab="question" aria-selected="false">Quiz questions</button>
+        <button type="button" role="tab" data-tab="photo" aria-selected="false">My photo</button>
+      </div>
+
+      <div class="tc-panel" data-panel="video">
+        <form id="fVideo">
+          <h3>Add a video</h3>
+          <label for="vTitle">Title<input id="vTitle" required placeholder="Eigenvalues in 10 minutes"></label>
+          <label for="vCourse">Course<select id="vCourse" class="course-select"></select></label>
+          <label for="vLink">YouTube link<input id="vLink" type="url" placeholder="https://www.youtube.com/watch?v=..."></label>
+          <label for="vFile">Or upload a video file (MP4 or WebM, up to 20 MB)<input id="vFile" type="file" accept="video/mp4,video/webm"></label>
+          <button class="btn btn-gold" type="submit">Add video</button>
+          <p class="tc-status" id="sVideo"></p>
+        </form>
+        <div class="tc-list"><h3>Your videos</h3><ul class="list" id="lVideo"></ul></div>
+      </div>
+
+      <div class="tc-panel" data-panel="material" hidden>
+        <form id="fMaterial">
+          <h3>Upload study material</h3>
+          <label for="mTitle">Title<input id="mTitle" required placeholder="Group theory notes, Unit 1"></label>
+          <label for="mCourse">Course<select id="mCourse" class="course-select"></select></label>
+          <label for="mFile">File (PDF or image, up to 20 MB)<input id="mFile" type="file" accept="application/pdf,image/png,image/jpeg,image/webp"></label>
+          <label for="mLink">Or paste a Google Drive link<input id="mLink" type="url" placeholder="https://drive.google.com/..."></label>
+          <button class="btn btn-gold" type="submit">Upload</button>
+          <p class="tc-status" id="sMaterial"></p>
+        </form>
+        <div class="tc-list"><h3>Your materials</h3><ul class="list" id="lMaterial"></ul></div>
+      </div>
+
+      <div class="tc-panel" data-panel="question" hidden>
+        <form id="fQuestion">
+          <h3>Add a quiz question</h3>
+          <label for="qExam">Quiz<select id="qExam" class="course-select"></select></label>
+          <label for="qText">Question<textarea id="qText" required placeholder="What is the order of the group ℤ/12ℤ × ℤ/2ℤ?"></textarea></label>
+          <div class="row2">
+            <label for="qA">Option A<input id="qA" required></label>
+            <label for="qB">Option B<input id="qB" required></label>
+            <label for="qC">Option C<input id="qC" required></label>
+            <label for="qD">Option D<input id="qD" required></label>
+          </div>
+          <label for="qRight">Correct answer<select id="qRight"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label>
+          <label for="qWhy">Explanation<textarea id="qWhy" placeholder="Shown after the student answers"></textarea></label>
+          <p class="hint">Tip: you can type symbols like ℤ, ℝ, ∫, √, ², ³ directly.</p>
+          <button class="btn btn-gold" type="submit">Add question</button>
+          <p class="tc-status" id="sQuestion"></p>
+        </form>
+        <div class="tc-list"><h3>Your questions</h3><ul class="list" id="lQuestion"></ul></div>
+      </div>
+
+      <div class="tc-panel" data-panel="photo" hidden>
+        <form id="fPhoto">
+          <h3>Your photo</h3>
+          <label for="pFile">Choose a photo (JPG, PNG or WebP)<input id="pFile" type="file" accept="image/png,image/jpeg,image/webp" required></label>
+          <p class="hint">A portrait photo works best. It replaces the "SS" placeholder in the About section.</p>
+          <button class="btn btn-gold" type="submit">Upload photo</button>
+          <p class="tc-status" id="sPhoto"></p>
+        </form>
       </div>
     </div>
-    <div class="join">
-      <h3>Join the next batch</h3>
-      <p>Call the class to ask about the current course, timings and fees. After admission you get your sign-in for the class app, with every recorded class and test from day one.</p>
-      <div class="cta">
-        <a class="btn gold" href="tel:+919789686706"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call 97896 86706</a>
-        <a class="btn light" href="https://app.ramanujanclass.org/">Student login</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Ramanujan Class, Namakkal</span>
-    <nav aria-label="Footer"><a href="https://app.ramanujanclass.org/">Class app</a><a href="https://app.ramanujanclass.org/privacy.html">Privacy</a></nav>
+    <div><b>Ramanujan Class</b><br><span class="tamil">இராமானுஜன் கணித வகுப்பு · நாமக்கல்</span></div>
+    <div><a href="https://sowndarmath.wordpress.com/" target="_blank" rel="noopener">Infinite Mathematics blog</a><br><a href="https://app.ramanujanclass.org/privacy.html" target="_blank" rel="noopener">Privacy policy</a></div>
+    <div>© 2026 Ramanujan Class, Namakkal<br><button class="linkish" type="button" id="teacherSignIn">Teacher sign in</button></div>
   </div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script>
-document.getElementById("yr").textContent=new Date().getFullYear();
-// Chalkboard background, the same look as the class app
-(function(){
-  const F=["1729 = 1³ + 12³ = 9³ + 10³","1/π = (2√2 / 9801) Σ (4k)! (1103 + 26390k) / ((k!)⁴ 396⁴ᵏ)","3 = √(1 + 2√(1 + 3√(1 + …)))","p(n) ∼ exp(π√(2n/3)) / (4n√3)","e^(π√163) ≈ 640320³ + 744","|G| = |H| · [G : H]","∮ f(z) dz = 2πi Σ Res f","det(A − λI) = 0","φ(n) = n ∏ (1 − 1/p)","e^(iπ) + 1 = 0","ζ(s) = Σ 1/nˢ","∫₀^∞ e^(−x²) dx = √π / 2","aᵖ ≡ a (mod p)","τ(n)","∞"];
-  const rng=a=>()=>{ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; };
-  const cv=document.getElementById("board");
-  function paint(){
-    const w=cv.clientWidth, h=cv.clientHeight; if(!w||!h) return;
-    const dpr=Math.min(2,window.devicePixelRatio||1); cv.width=Math.round(w*dpr); cv.height=Math.round(h*dpr);
-    const g=cv.getContext("2d"); g.setTransform(dpr,0,0,dpr,0,0); const r=rng(1729);
-    const lg=g.createLinearGradient(0,0,w,h); lg.addColorStop(0,"#0b1534"); lg.addColorStop(.55,"#142a5e"); lg.addColorStop(1,"#0a3a48");
-    g.fillStyle=lg; g.fillRect(0,0,w,h);
-    const glow=(x,y,rad,c)=>{ const rg=g.createRadialGradient(x,y,0,x,y,rad); rg.addColorStop(0,c); rg.addColorStop(1,"rgba(0,0,0,0)"); g.fillStyle=rg; g.fillRect(0,0,w,h); };
-    const M=Math.max(w,h); glow(w*.82,h*.12,M*.55,"rgba(242,178,55,.28)"); glow(w*.08,h*.95,M*.5,"rgba(36,170,180,.2)");
-    g.lineWidth=1; g.strokeStyle="rgba(255,255,255,.045)"; g.beginPath();
-    for(let x=0;x<w;x+=32){ g.moveTo(x+.5,0); g.lineTo(x+.5,h); } for(let y=0;y<h;y+=32){ g.moveTo(0,y+.5); g.lineTo(w,y+.5); } g.stroke();
-    const phi=(1+Math.sqrt(5))/2, R=Math.min(w,h)*.62, cx=w*(w>860?.78:.62), cy=h*.45, turns=4.5;
-    g.save(); g.translate(cx,cy); g.rotate(r()*Math.PI*2); g.strokeStyle="rgba(242,178,55,.45)"; g.lineWidth=1.6; g.beginPath();
-    const b=Math.log(phi)/(Math.PI/2), tMax=turns*2*Math.PI, a=R/Math.exp(b*tMax);
-    for(let t=0;t<=tMax;t+=0.02){ const rr=a*Math.exp(b*t); t===0?g.moveTo(rr*Math.cos(t),rr*Math.sin(t)):g.lineTo(rr*Math.cos(t),rr*Math.sin(t)); }
-    g.stroke(); g.strokeStyle="rgba(255,255,255,.07)"; for(let k=1;k<=4;k++){ g.beginPath(); g.arc(0,0,R*k/4,0,Math.PI*2); g.stroke(); } g.restore();
-    const n=Math.round(Math.min(24,6+w*h/40000)); g.textBaseline="middle";
-    for(let i=0;i<n;i++){ const f=F[Math.floor(r()*F.length)], size=13+r()*(w>700?20:12);
-      g.save(); g.translate(r()*w*.95,r()*h); g.rotate((r()-.5)*.16); g.font=`${r()>.5?700:400} ${size}px Kalam, "Comic Sans MS", cursive`;
-      g.fillStyle=`rgba(255,255,255,${(.06+r()*.14).toFixed(3)})`; g.fillText(f,-g.measureText(f).width*r()*.5,0); g.restore(); }
+const COURSES = ["CSIR NET", "GATE MA", "IIT JAM", "TN SET", "PG TRB", "IIT Foundation & Olympiad", "College maths (UG / PG)"];
+
+const BUILTIN_VIDEOS = [
+  { title: "Fibonacci numbers and the Golden Ratio", course: "Free lecture", url: "https://www.youtube.com/watch?v=ioyiXTpAlwY", note: "5 minutes · Pondicherry University, 2017" }
+];
+
+const BUILTIN_QUESTIONS = [
+  { exam: "CSIR NET", q: "How many group homomorphisms are there from ℤ/6ℤ to ℤ/4ℤ?", options: ["1", "2", "4", "6"], answer: 1,
+    why: "A homomorphism is fixed by where 1 goes; its image must have order dividing both 6 and 4. There are gcd(6, 4) = 2 choices." },
+  { exam: "CSIR NET", q: "What is the largest eigenvalue of the matrix [[2, 1], [1, 2]]?", options: ["1", "2", "3", "4"], answer: 2,
+    why: "Trace 4 and determinant 3 give the characteristic polynomial λ² − 4λ + 3 = (λ − 1)(λ − 3)." },
+  { exam: "CSIR NET", q: "What is the radius of convergence of Σ n! zⁿ / nⁿ?", options: ["1", "1/e", "e", "∞"], answer: 2,
+    why: "The ratio aₙ₊₁/aₙ = (n/(n+1))ⁿ tends to 1/e, so the radius is e." },
+  { exam: "CSIR NET", q: "How many elements of order 2 does the symmetric group S₃ have?", options: ["1", "2", "3", "4"], answer: 2,
+    why: "The elements of order 2 in S₃ are the three transpositions (12), (13) and (23)." },
+  { exam: "CSIR NET", q: "Evaluate ∫₀¹ x ln x dx.", options: ["−1/4", "−1/2", "1/4", "0"], answer: 0,
+    why: "Integrating by parts: [x²/2 · ln x]₀¹ − ∫₀¹ x/2 dx = 0 − 1/4." },
+  { exam: "CSIR NET", q: "What is the residue of 1/(z² + 1) at z = i?", options: ["i/2", "−i/2", "1/2", "2i"], answer: 1,
+    why: "It is a simple pole, so the residue is 1/(2z) at z = i, which is 1/(2i) = −i/2." }
+];
+
+const state = { videos: [], materials: [], questions: [], photo: null };
+let fdb = null, auth = null, storage = null, isTeacher = false;
+const base = { videos: [], materials: [], questions: [], photo: null };
+const remote = { videos: [], materials: [], questions: [], photo: null };
+function merge() { for (const k of ["videos", "materials", "questions"]) state[k] = [...remote[k], ...base[k]]; state.photo = remote.photo || base.photo; }
+
+function el(tag, props = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === "class") n.className = v;
+    else if (k === "text") n.textContent = v;
+    else n.setAttribute(k, v);
   }
-  let t; addEventListener("resize",()=>{ clearTimeout(t); t=setTimeout(paint,150); });
-  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(paint); paint();
-})();
+  for (const k of kids) if (k != null) n.append(k);
+  return n;
+}
+const safeHttps = u => { try { const x = new URL(u); return x.protocol === "https:" ? x.href : null; } catch { return null; } };
+const blobUrl = id => /^(https:|\/|uploads\/)/.test(id) ? id : "uploads/" + id;
+const srcOf = x => x.file || x.link || (x.asset ? blobUrl(x.asset) : null);
+
+/* ---------- Public rendering ---------- */
+function renderVideos() {
+  const box = document.getElementById("videoList");
+  box.replaceChildren();
+  const all = [...state.videos, ...BUILTIN_VIDEOS];
+  for (const v of all) {
+    let card;
+    if (v.asset || v.file) {
+      card = el("div", { class: "video" },
+        el("video", { src: srcOf(v), controls: "", preload: "metadata" }),
+        el("div", { class: "meta" }, el("span", { class: "course-tag", text: v.course || "" }), el("h3", { text: v.title }), v.note ? el("span", { text: v.note }) : null));
+    } else {
+      const href = safeHttps(v.url);
+      if (!href) continue;
+      card = el("a", { class: "video", href, target: "_blank", rel: "noopener" },
+        el("div", { class: "thumb" }, el("span", { class: "spiral", text: v.title }), el("span", { class: "play", "aria-hidden": "true" })),
+        el("div", { class: "meta" }, el("span", { class: "course-tag", text: v.course || "" }), el("h3", { text: v.title }), el("span", { text: v.note || "Watch on YouTube" })));
+    }
+    box.append(card);
+  }
+}
+
+const staticMaterials = [...document.querySelectorAll("#materialList > li")];
+function renderMaterials() {
+  const list = document.getElementById("materialList");
+  list.replaceChildren();
+  for (const m of state.materials) {
+    list.append(el("li", {},
+      el("div", {}, el("b", { text: m.title }), el("span", { text: m.course || "Study material" })),
+      el("a", { class: "dl", href: srcOf(m), target: "_blank", rel: "noopener", text: m.type === "application/pdf" ? "Open PDF" : "Open" })));
+  }
+  staticMaterials.forEach(li => list.append(li));
+}
+
+function renderPhoto() {
+  const box = document.getElementById("portrait");
+  if (!state.photo) return;
+  box.classList.add("has-photo");
+  box.replaceChildren(el("img", { src: blobUrl(state.photo), alt: "Sowndrarajan S." }));
+}
+
+/* ---------- Quiz ---------- */
+const quizBox = document.getElementById("quizBox");
+let quizExam = "CSIR NET", QUESTIONS = [], idx = 0, score = 0, picked = null;
+
+function allQuestions() { return [...BUILTIN_QUESTIONS, ...state.questions]; }
+
+function renderQuizPicker() {
+  const exams = COURSES.filter(c => allQuestions().some(q => q.exam === c));
+  if (!exams.includes(quizExam)) quizExam = exams[0] || "CSIR NET";
+  const pick = document.getElementById("quizPick");
+  pick.replaceChildren(...exams.map(e => {
+    const b = el("button", { type: "button", "aria-pressed": String(e === quizExam), text: `${e} (${allQuestions().filter(q => q.exam === e).length})` });
+    b.onclick = () => { quizExam = e; startQuiz(); renderQuizPicker(); };
+    return b;
+  }));
+}
+
+function startQuiz() {
+  QUESTIONS = allQuestions().filter(q => q.exam === quizExam);
+  idx = 0; score = 0; picked = null;
+  renderQuiz();
+}
+
+function renderQuiz() {
+  quizBox.replaceChildren();
+  const total = QUESTIONS.length;
+  if (!total) { quizBox.append(el("p", { class: "explain", text: "No questions in this quiz yet." })); return; }
+  if (idx >= total) {
+    const msg = score >= total * 0.8 ? "Excellent. You are ready for full mock tests in the class app."
+      : score >= total * 0.5 ? "A good start. Our course will sharpen the rest."
+      : "Every expert started here. Join a demo class and we will build it up together.";
+    const again = el("button", { class: "btn btn-ghost", type: "button", text: "Try again" });
+    again.onclick = startQuiz;
+    quizBox.append(
+      el("div", { class: "quiz-top" }, el("span", { class: "eyebrow", text: quizExam + " · your result" }), el("span", { class: "count", text: `${total} of ${total}` })),
+      el("div", { class: "progress" }, el("i", { style: "width:100%" })),
+      el("div", { class: "score", text: `${score} / ${total}` }),
+      el("p", { class: "explain", text: msg }),
+      el("div", { class: "quiz-nav" }, again, el("a", { class: "btn btn-gold", href: "#join", text: "Book a demo class" })));
+    return;
+  }
+  const item = QUESTIONS[idx];
+  const count = el("span", { class: "count", text: `Score ${score} · ${idx + 1} of ${total}` });
+  const why = el("p", { class: "explain" }); why.hidden = true;
+  const next = el("button", { class: "btn btn-gold", type: "button", text: idx === total - 1 ? "See my score" : "Next question" });
+  next.disabled = true;
+  next.onclick = () => { idx++; picked = null; renderQuiz(); };
+  const opts = el("div", { class: "options" });
+  item.options.forEach((o, i) => {
+    const b = el("button", { class: "opt", type: "button", text: `${String.fromCharCode(65 + i)}. ${o}` });
+    b.onclick = () => {
+      if (picked !== null) return;
+      picked = i;
+      if (i === item.answer) score++;
+      [...opts.children].forEach((c, j) => { c.disabled = true; if (j === item.answer) c.classList.add("right"); else if (j === i) c.classList.add("wrong"); });
+      why.textContent = (i === item.answer ? "Correct. " : "Not quite. ") + (item.why || "");
+      why.hidden = false; next.disabled = false;
+      count.textContent = `Score ${score} · ${idx + 1} of ${total}`;
+    };
+    opts.append(b);
+  });
+  quizBox.append(
+    el("div", { class: "quiz-top" }, el("span", { class: "eyebrow", text: `${quizExam} · question ${idx + 1}` }), count),
+    el("div", { class: "progress" }, el("i", { style: `width:${(idx / total) * 100}%` })),
+    el("p", { class: "q-text", text: item.q }), opts, why,
+    el("div", { class: "quiz-nav" }, next));
+}
+
+function renderAll() {
+  renderVideos(); renderMaterials(); renderPhoto(); renderQuizPicker();
+  if (isTeacher && teacherReady) renderTeacherLists();
+}
+
+/* ---------- Teacher corner ---------- */
+function status(id, text, ok) { const s = document.getElementById(id); s.textContent = text; s.className = "tc-status " + (ok ? "ok" : "err"); }
+
+function deleteButton(onConfirm) {
+  const b = el("button", { class: "del", type: "button", text: "Delete" });
+  let armed = false, timer;
+  b.onclick = async () => {
+    if (!armed) { armed = true; b.textContent = "Confirm delete"; b.classList.add("confirm"); timer = setTimeout(() => { armed = false; b.textContent = "Delete"; b.classList.remove("confirm"); }, 4000); return; }
+    clearTimeout(timer); b.disabled = true; b.textContent = "Deleting…";
+    try { await onConfirm(); } catch (e) { b.disabled = false; b.textContent = "Could not delete"; }
+  };
+  return b;
+}
+
+async function removeItem(col, item) {
+  await fdb.collection(COL[col]).doc(item.id).delete();
+  if (item.path && storage) { try { await storage.ref(item.path).delete(); } catch {} }
+}
+async function uploadFile(file) {
+  if (!storage) throw { code: "no_storage" };
+  if (file.size > 20 * 1024 * 1024) throw { code: "too_large" };
+  const path = "website/" + Date.now() + "-" + file.name.replace(/[^\w.\-]+/g, "_");
+  const ref = storage.ref(path);
+  await ref.put(file, { contentType: file.type });
+  return { file: await ref.getDownloadURL(), path, type: file.type };
+}
+
+function fillList(listId, items, col, label) {
+  const list = document.getElementById(listId);
+  list.replaceChildren();
+  if (!items.length) { list.append(el("li", { class: "empty", text: "Nothing added yet." })); return; }
+  for (const it of items) list.append(el("li", {}, el("div", {}, el("b", { text: label(it) }), el("span", { text: it.course || it.exam || "" })), deleteButton(() => removeItem(col, it))));
+}
+
+function renderTeacherLists() {
+  fillList("lVideo", remote.videos, "videos", v => v.title);
+  fillList("lMaterial", remote.materials, "materials", m => m.title);
+  fillList("lQuestion", remote.questions, "questions", q => q.q.length > 70 ? q.q.slice(0, 70) + "…" : q.q);
+}
+
+function uploadError(e) {
+  const map = { no_storage: "File uploads are not switched on in Firebase yet. Paste a YouTube or Google Drive link instead.", "storage/unauthorized": "Firebase refused the upload. Check the Storage rules in the setup guide.", too_large: "That file is over 20 MB. Please compress it or share it as a YouTube link.", unsupported_type: "That file type is not supported. Use PDF, JPG, PNG, WebP, MP4 or WebM.", quota_or_state: "Storage is full. Delete an old file and try again.", rate_limited: "Too many uploads at once. Wait a minute and try again." };
+  return map[e && e.code] || (e && String(e.code).startsWith("storage/") ? "Firebase Storage refused the upload. Paste a YouTube or Google Drive link instead, or check the Storage setup." : null) || "The upload did not go through. Please try again.";
+}
+
+let teacherReady = false;
+function setupTeacher() {
+  document.getElementById("teacher-corner").hidden = false;
+  document.getElementById("navTeacher").hidden = false;
+  if (teacherReady) { renderTeacherLists(); return; }
+  teacherReady = true;
+  document.querySelectorAll(".course-select").forEach(s => s.replaceChildren(...COURSES.map(c => el("option", { text: c }))));
+
+  const tabs = document.querySelectorAll(".tc-tabs button");
+  tabs.forEach(t => t.onclick = () => {
+    tabs.forEach(x => x.setAttribute("aria-selected", String(x === t)));
+    document.querySelectorAll(".tc-panel").forEach(p => p.hidden = p.dataset.panel !== t.dataset.tab);
+  });
+
+  document.getElementById("fVideo").addEventListener("submit", async e => {
+    e.preventDefault();
+    const title = vTitle.value.trim(), course = vCourse.value, link = vLink.value.trim(), file = vFile.files[0];
+    if (!title) return status("sVideo", "Please give the video a title.");
+    if (!file && !link) return status("sVideo", "Add a YouTube link or choose a video file.");
+    if (link && !file && !/^(https:\/\/)?(www\.|m\.)?(youtube\.com|youtu\.be)\//.test(link)) return status("sVideo", "Please paste a full YouTube link starting with https://.");
+    const btn = e.submitter; btn.disabled = true; status("sVideo", "Saving…", true);
+    try {
+      const row = { title, course, createdAt: Date.now() };
+      if (file) Object.assign(row, await uploadFile(file));
+      else row.url = link.startsWith("http") ? link : "https://" + link;
+      await fdb.collection(COL.videos).add(row);
+      e.target.reset(); status("sVideo", "Video added to the site.", true);
+    } catch (err) { status("sVideo", err && err.code === "permission-denied" ? "This Google account is not allowed to edit the site." : uploadError(err)); }
+    btn.disabled = false;
+  });
+
+  document.getElementById("fMaterial").addEventListener("submit", async e => {
+    e.preventDefault();
+    const title = mTitle.value.trim(), course = mCourse.value, file = mFile.files[0], link = safeHttps(mLink.value.trim());
+    if (!title || (!file && !link)) return status("sMaterial", "Please add a title, then choose a file or paste a link.");
+    const btn = e.submitter; btn.disabled = true; status("sMaterial", "Uploading…", true);
+    try {
+      const row = { title, course, createdAt: Date.now() };
+      if (file) Object.assign(row, await uploadFile(file)); else row.link = link;
+      await fdb.collection(COL.materials).add(row);
+      e.target.reset(); status("sMaterial", "Uploaded. It now appears under Free downloads.", true);
+    } catch (err) { status("sMaterial", uploadError(err)); }
+    btn.disabled = false;
+  });
+
+  document.getElementById("fQuestion").addEventListener("submit", async e => {
+    e.preventDefault();
+    const options = [qA, qB, qC, qD].map(i => i.value.trim());
+    const q = qText.value.trim();
+    if (!q || options.some(o => !o)) return status("sQuestion", "Please fill in the question and all four options.");
+    const btn = e.submitter; btn.disabled = true;
+    try {
+      await fdb.collection(COL.questions).add({ exam: qExam.value, q, options, answer: +qRight.value, why: qWhy.value.trim(), createdAt: Date.now() });
+      const exam = qExam.value; e.target.reset(); qExam.value = exam;
+      status("sQuestion", "Question added to the " + exam + " quiz.", true);
+    } catch { status("sQuestion", "Could not save. Please try again."); }
+    btn.disabled = false;
+  });
+
+  document.getElementById("fPhoto").addEventListener("submit", async e => {
+    e.preventDefault();
+    const file = pFile.files[0];
+    if (!file) return status("sPhoto", "Please choose a photo.");
+    const btn = e.submitter; btn.disabled = true; status("sPhoto", "Uploading…", true);
+    try {
+      const oldPath = remote.photoPath;
+      const r = await uploadFile(file);
+      await fdb.collection(COL.settings).doc("profile").set({ photo: r.file, path: r.path });
+      if (oldPath && storage) { try { await storage.ref(oldPath).delete(); } catch {} }
+      e.target.reset(); status("sPhoto", "Photo updated.", true);
+    } catch (err) { status("sPhoto", uploadError(err)); }
+    btn.disabled = false;
+  });
+
+  renderTeacherLists();
+}
+
+/* ---------- Data ---------- */
+const COL = { videos: "website_videos", materials: "website_materials", questions: "website_questions", settings: "website_settings" };
+
+function watch(key) {
+  fdb.collection(COL[key]).orderBy("createdAt", "desc").onSnapshot(
+    snap => { remote[key] = snap.docs.map(d => ({ id: d.id, ...d.data() })); merge(); renderAll(); },
+    () => {});
+}
+
+async function loadBase() {
+  try {
+    const res = await fetch("content.json", { cache: "no-cache" });
+    if (!res.ok) return;
+    const c = await res.json();
+    Object.assign(base, { videos: c.videos || [], materials: c.materials || [], questions: c.questions || [], photo: c.photo || null });
+    merge(); renderAll(); startQuiz();
+  } catch {}
+}
+
+function startFirebase() {
+  const cfg = window.FIREBASE_CONFIG;
+  if (!window.firebase || !cfg || !cfg.apiKey || cfg.apiKey.startsWith("PASTE")) return;
+  firebase.initializeApp(cfg);
+  fdb = firebase.firestore();
+  auth = firebase.auth();
+  try { storage = firebase.storage(); } catch { storage = null; }
+  ["videos", "materials", "questions"].forEach(watch);
+  fdb.collection(COL.settings).doc("profile").onSnapshot(s => {
+    const d = s.exists ? s.data() : {};
+    remote.photo = d.photo || null; remote.photoPath = d.path || null; merge(); renderPhoto();
+  }, () => {});
+
+  const teachers = (window.TEACHER_EMAILS || []).map(e => e.toLowerCase());
+  const signInBtn = document.getElementById("teacherSignIn");
+  signInBtn.onclick = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(() => {});
+  document.getElementById("tcSignOut").onclick = () => auth.signOut();
+  auth.onAuthStateChanged(u => {
+    isTeacher = !!(u && u.email && teachers.includes(u.email.toLowerCase()));
+    document.getElementById("tcWho").textContent = u ? "Signed in as " + u.email : "";
+    if (isTeacher) { setupTeacher(); signInBtn.hidden = true; location.hash = "teacher-corner"; }
+    else {
+      document.getElementById("teacher-corner").hidden = true;
+      document.getElementById("navTeacher").hidden = true;
+      signInBtn.hidden = false;
+      if (u) { alert("This Google account is not a teacher account for this site."); auth.signOut(); }
+    }
+  });
+}
+
+renderAll(); startQuiz();
+loadBase();
+startFirebase();
+
+/* ---------- Join form ---------- */
+document.getElementById("joinForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const name = document.getElementById("jName").value.trim();
+  const phone = document.getElementById("jPhone").value.trim();
+  const exam = document.getElementById("jExam").value;
+  const note = document.getElementById("formNote");
+  const btn = e.submitter;
+  note.hidden = false;
+  if (!name || phone.replace(/\D/g, "").length < 10) {
+    note.style.color = "var(--bad)";
+    note.textContent = "Please enter your name and a 10-digit phone number.";
+    return;
+  }
+  if (!fdb) {
+    note.style.color = "var(--bad)";
+    note.textContent = "We could not send your request right now. Please call 97896 86706 to book your demo class.";
+    return;
+  }
+  if (btn) btn.disabled = true;
+  try {
+    await fdb.collection("website_enquiries").add({ name, phone, exam, createdAt: Date.now() });
+    e.target.reset();
+    note.style.color = "var(--good)";
+    note.textContent = `Thank you, ${name}. Our course mentor will call you soon with batch timings.`;
+  } catch {
+    note.style.color = "var(--bad)";
+    note.textContent = "We could not send your request right now. Please call 97896 86706 to book your demo class.";
+  }
+  if (btn) btn.disabled = false;
+});
 </script>
 </body>
 </html>
